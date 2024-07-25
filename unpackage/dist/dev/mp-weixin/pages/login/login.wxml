@@ -1,0 +1,1 @@
+<view class="content"><image class="logo" src="/static/logo.png"></image><view class="login-form"><input class="input_login-form" type="text" placeholder="请输入用户账号"/><input class="input_login-form" type="password" placeholder="请输入用户密码"/></view><view class="submit">登录</view></view>
