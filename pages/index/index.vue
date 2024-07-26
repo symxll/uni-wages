@@ -1,8 +1,13 @@
 <template>
-  <view class="" v-for="item in newList" :key="item.label">
-    <view class="flex-spacebetween fill">
-      <view class="label">{{ item.label }}</view>
-      <view class="text">{{ item.text }}</view>
+  <view class="H1-title">本月工资为：</view>
+  <view class="flex-center" v-for="item in newList" :key="item.label">
+    <view class="flex-spacebetween">
+      <view class="left">
+        <view class="label">{{ item.label }}</view>
+      </view>
+      <view class="right">
+        <view class="text">{{ item.text }}</view>
+      </view>
     </view>
   </view>
   <button @click="getDataList">刷新</button>
@@ -59,32 +64,49 @@ const getDataList = async () => {
   }
 };
 
+/**
+ * 千分位函数
+ */
+const formatToThousands = (num) => {
+  return num.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
 onMounted(() => {
   getDataList();
 });
 </script>
 
 <style>
-.fill {
-  width: 100%;
-  background-color: rgb(255, 255, 255);
-}
-
 .flex-spacebetween {
+  width: 666rpx;
+  /* padding: 50rpx; */
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.label {
+.left {
   width: 50%;
-  color: black;
-  background-color: pink;
+  padding: 10rpx;
+  /* background-color: pink; */
+}
 
+.right {
+  min-width: 50%;
+  padding: 10rpx;
+  
+}
+
+.label {
+  /* width: 50%; */
+  color: black;
+  /* background-color: skyblue; */
+  border: solid 1rpx black;
 }
 
 .text {
-  width: 50%;
-  background: skyblue;
+  /* background-color: skyblue; */
+  /* width: 50%; */
+  border: solid 1rpx black;
 }
 </style>
